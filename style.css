@@ -1,0 +1,319 @@
+/* font-family: 'Amiko', sans-serif;
+font-family: 'Anek Latin', sans-serif; */
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Amiko', sans-serif;}
+
+html{
+    font-size: 62.5%;
+}
+
+:root{
+    --primary: #FFFFFF;
+    --secondary: #b4c1cc;
+    --background-color: #212a3e;
+    --btn-carrousel: #79808E;
+    --footer: #222222;
+}
+
+body{
+    /* background-color: var(--background-color); */
+    background: linear-gradient(#212a3e, #171e2c);
+    overflow-x: hidden;
+}
+
+header{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* background-color: var(--footer); */
+    background-image: url(img/batman.jpg);
+    background-size: cover;
+    background-position: center;
+    width: 90vw;
+    border-bottom-right-radius: 90px;
+    height: 50vh;
+    border-right: solid 3px var(--secondary);
+    border-bottom: solid 3px var(--secondary);
+    position: relative;
+}
+
+.filter-black{
+    width: 90vw;
+    background-color: rgba(0, 0, 0, .2);
+    height: 50vh;
+    position: absolute;
+    border-bottom-right-radius: 90px;
+}
+
+.logo-search-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 2rem;
+}
+.logo{
+    z-index: 2;
+    width: 18rem;
+}
+
+.input-search-container{
+    background-color: var(--btn-carrousel);
+    padding: 1rem;
+    font-size: 2rem;
+    border-radius: 30px;
+    height: 4rem;
+    display: flex;
+}
+.input-search{
+    margin-top: 2px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-size: 2rem;
+    margin-left: 1rem;
+}
+
+.input-search::placeholder{
+    color: rgba(34, 34, 34, .5);;
+    font-weight: 600;
+    text-align: center;
+}
+.fa-magnifying-glass{
+    color: var(--footer);
+    cursor: pointer;
+}
+
+.genre{
+    display: flex;
+    gap: 1rem;
+}
+.genre-item{
+    width: 9rem;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    padding-top: 2px;
+    border-radius: 5px;
+}
+
+.genre-title-container{
+    position: relative;
+    margin-left: 3rem;
+    color: var(--primary);
+}
+.genre-title-container h1{
+    background-color: rgba(0, 0, 0, .4);
+    color: transparent;
+    text-shadow: 2px 2px 1.2px rgba(255, 255, 255, 1);
+    -webkit-background-clip: text;
+       -moz-background-clip: text;
+            background-clip: text;
+  font-family: 'Anek Latin', sans-serif; 
+  font-size: 7rem;
+}
+
+
+.popular-movies{
+    padding-top: 8rem;
+    margin-left: 4rem;
+}
+
+.popular-title, .popular-title-tv{
+    font-size: 4rem;
+    color: var(--primary);
+    margin-bottom: 2rem;
+    font-family: 'Anek Latin', Arial;
+}
+
+/* Carousel style */
+
+.carousel-container {
+    position: relative;
+  }
+  
+  .carousel, .carousel-3, .carousel-4 {
+    display: flex;
+    overflow-x: hidden;
+    margin-bottom: 20px;
+    height: 70vh;
+  }
+  
+  
+  .container-carousel-item {
+    border: solid 2px var(--secondary);
+    color: var(--secondary);
+    border-radius: 20px;
+    flex: 0 0 300px;
+    height: 45rem;
+    margin-right: 20px;
+    /* background-color: #ccc; */
+    background-image: url(img/jw4.jpg);
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    font-size: 1.8rem;
+  }
+
+  .container-carousel-item h2{
+    position: relative;
+    top: 10%;
+  }
+
+  
+  .carousel-btn {
+    position: absolute;
+    top: 40%;
+    font-size: 4rem;
+    color: var(--btn-carrousel);
+    cursor: pointer;
+    /* background-color: var(--footer); */
+    height: auto;
+    padding: 1rem;
+    transition: all .3s ease-out;
+  }
+
+  .carousel-btn:hover{
+    background-color: var(--footer);
+  }
+
+  
+  .next-btn {
+    right: 10px;
+  }
+
+  .carousel-container-3, .carousel-container-4, .popular-title-tv{
+    margin-left: 4rem;
+    position: relative;
+  }
+
+
+  .glass{
+    border: 0.5px solid #ffffff;
+    background: radial-gradient(159.14% 215.10% at 0.00% 0%, rgba(192, 192, 192, 0.4) 0%, rgba(255, 255, 255, 0.00) 100%);
+    backdrop-filter: blur(3.1994264125823975px);
+  }
+
+  .esfumacar{
+    width: 95vw;
+    height: 30vh;
+    background-color: rgba(33, 42, 62, .5);
+    filter: blur(80px);
+    position: relative;
+    top: 70%;
+  }
+
+
+  .trending-img-poster{
+    width: 100vw;
+    height: 70vh;
+    /* background-color: var(--primary); */
+    background-image: url(img/secret-invasion-2023-6g-1440x900.jpg);
+    border-top: 4px solid;
+    border-bottom: 4px solid;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(45deg, var(--secondary), var(--background-color));
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    position: relative;
+    background-size: cover;
+  }
+
+  .trending-img-poster h1{
+    margin-left: 2rem;
+    background-color: rgba(0, 0, 0, .4);
+    color: transparent;
+    text-shadow: 2px 2px 1.2px rgba(255, 255, 255, 1);
+    -webkit-background-clip: text;
+       -moz-background-clip: text;
+            background-clip: text;
+    font-family: 'Anek Latin', sans-serif; 
+    font-size: 7rem;
+    z-index: 1;
+  }
+
+  .popular-title-tv{
+    margin-top: 8rem;
+  }
+
+  .nota{
+    margin-left: 2rem;
+    font-size: 3rem;
+    background-color: var(--footer);
+    width: fit-content;
+    padding: .8rem;
+    display: flex;
+    color: var(--primary);
+    border-radius: 6px;
+  }
+  .nota i {
+    color: rgb(255, 208, 0);
+  }
+
+  .title-tv-container{
+    background-color: rgba(0, 0, 0, .5);
+    width: 35vw;
+    position: absolute;
+    height: 10vh;
+    filter: blur(20px);
+  }
+
+  .esfumacar-tv{
+    width: 110vw;
+    margin-left: -10rem;
+    background-color: rgba(33, 42, 62, .6);
+    height: 20vh;
+    position: absolute;
+    bottom: -6rem;
+    filter: blur(20px);
+  }
+
+  @media (max-width: 1250px) {
+  html{
+    font-size: 52%;
+  }
+  
+  }
+
+  @media (max-width: 600px) {
+    .logo{
+      display: none;
+    }
+    .input-search-container{
+      width: 100%;
+    }
+    header{
+      width: 100%;
+      border-radius: 0;
+    }
+    .filter-black{
+      width: 100%;
+    }
+  
+  }
+
+  @media (max-width: 450px) {
+    .genre-title-container h1{
+      font-size: 5rem;
+    }
+    
+    .trending-img-poster h1{
+      font-size: 5.5rem;
+    }
+ 
+  }
+
+  @media (max-width: 356px) {
+    .container-carousel-item{
+      flex: 0 0 240px;
+    }
+  
+  }
