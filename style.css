@@ -31,12 +31,12 @@ header{
     flex-direction: column;
     justify-content: space-between;
     /* background-color: var(--footer); */
-    background-image: url(img/batman.jpg);
+    /* background-image: url(img/batman.jpg); */
     background-size: cover;
     background-position: center;
     width: 90vw;
     border-bottom-right-radius: 90px;
-    height: 50vh;
+    height: 60vh;
     border-right: solid 3px var(--secondary);
     border-bottom: solid 3px var(--secondary);
     position: relative;
@@ -45,7 +45,7 @@ header{
 .filter-black{
     width: 90vw;
     background-color: rgba(0, 0, 0, .2);
-    height: 50vh;
+    height: 60vh;
     position: absolute;
     border-bottom-right-radius: 90px;
 }
@@ -93,14 +93,19 @@ header{
     gap: 1rem;
 }
 .genre-item{
-    width: 9rem;
+    width: fit-content;
     height: 3rem;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 1.5rem;
-    padding-top: 2px;
+    padding: 2rem 1rem;
     border-radius: 5px;
+}
+
+.genre-item:hover{
+  background: radial-gradient(159.14% 215.10% at 0.00% 0%, rgba(151, 151, 151, 0.4) 0%, rgba(255, 255, 255, 0.00) 100%);
+
 }
 
 .genre-title-container{
@@ -154,7 +159,7 @@ header{
     height: 45rem;
     margin-right: 20px;
     /* background-color: #ccc; */
-    background-image: url(img/jw4.jpg);
+    /* background-image: url(img/jw4.jpg); */
     background-size: cover;
     display: flex;
     justify-content: center;
