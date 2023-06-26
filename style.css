@@ -156,7 +156,7 @@ header{
     color: var(--secondary);
     border-radius: 20px;
     flex: 0 0 300px;
-    height: 45rem;
+    height: 44rem;
     margin-right: 20px;
     /* background-color: #ccc; */
     /* background-image: url(img/jw4.jpg); */
@@ -164,12 +164,19 @@ header{
     display: flex;
     justify-content: center;
     align-items: end;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: flex 300ms ease;
   }
+  .container-carousel-item:hover{
+    flex: 0 0 350px;
+  }
+
 
   .container-carousel-item h2{
     position: relative;
-    top: 10%;
+    top: 14%;
+    text-align: center;
   }
 
   
@@ -183,6 +190,10 @@ header{
     height: auto;
     padding: 1rem;
     transition: all .3s ease-out;
+  }
+
+  .carousel-btn{
+
   }
 
   .carousel-btn:hover{
@@ -220,7 +231,6 @@ header{
     width: 100vw;
     height: 70vh;
     /* background-color: var(--primary); */
-    background-image: url(img/secret-invasion-2023-6g-1440x900.jpg);
     border-top: 4px solid;
     border-bottom: 4px solid;
     border-image-slice: 1;

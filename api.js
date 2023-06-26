@@ -9,11 +9,34 @@ const options = {
   };
   
   
-//     fetch('https://api.themoviedb.org/3/trending/tv/day?language=en-US', options)
-//     .then(response => response.json())
-//     .then(response => console.log("popular tv",response))
-//     .catch(err => console.error(err));
-  
+  const indiceTrendingSeries = Math.floor(Math.random() * 21)
+  const trendingImageSerie = document.querySelector(".trending-img-poster")
+  const h1TitleSerieTrending = trendingImageSerie.querySelector("h1")
+  const nota = document.querySelector(".nota-number")
+  fetch('https://api.themoviedb.org/3/trending/tv/day?language=en-US', options)
+    .then(response => response.json())
+    .then(response => {
+      const pathSerie = response.results[indiceTrendingSeries].backdrop_path
+      trendingImageSerie.style.backgroundImage = `url(${urlIMG}${pathSerie})`
+      console.log(response.results[indiceTrendingSeries])
+      h1TitleSerieTrending.innerText = response.results[indiceTrendingSeries].name
+      nota.innerText = parseFloat(response.results[indiceTrendingSeries].vote_average).toFixed(1)
+      
+      response.results.forEach((e, i)=>{
+        if(i <= 9){
+          const posterPathSerie = e.poster_path
+          createPopularSeriesDiv(`${urlIMG}${posterPathSerie}`, e.name)
+
+        }
+        if(i >9 && i <= 19){
+          const posterPathSerie = e.poster_path
+          createPopularSeriesDiv2(`${urlIMG}${posterPathSerie}`, e.name)
+
+        }
+      })
+    })
+    .catch(err => console.error(err));
+
   
 //     fetch('https://api.themoviedb.org/3/search/multi?query=supernatural&include_adult=false&language=pt-BR&page=1', options)
 //     .then(response => response.json())
@@ -41,9 +64,19 @@ const options = {
     movieId = response.results[indiceMovie].id;
     // const genresDOM = document.querySelectorAll(".genre-item")
     urlAPI = response.results[indiceMovie].backdrop_path
-    const urlPosterAPI = `${urlIMG}${response.results[10].poster_path}`
     
-    console.log(response.results)
+    
+    response.results.forEach((e, index)=>{
+      if(index <= 9){
+        const pathPoster = e.poster_path
+        createPopularMovieDiv(`${urlIMG}${pathPoster}`, e.original_title)
+      }
+      if(index >9 && index <= 19){
+        const pathPoster = e.poster_path
+        createPopularMovieDiv2(`${urlIMG}${pathPoster}`, e.original_title)
+
+      }
+    })
     const header = document.querySelector('header'); 
     header.style.backgroundImage = `url(${urlIMG}${urlAPI})`
     const headerTitle = document.querySelector(".header-title")
@@ -89,6 +122,42 @@ function createPopularMovieDiv(link, name){
     divMovie.appendChild(h2)
     carousel1.appendChild(divMovie)
 }
+function createPopularMovieDiv2(link, name){
+    const divMovie = document.createElement("div")
+    divMovie.classList.add("container-carousel-item")
+    const carouselItem = document.createElement("div")
+    carouselItem.classList.add("carousel-item")
+    const h2 = document.createElement("h2")
+    h2.innerText = name
+    divMovie.style.backgroundImage = `url(${link})`
+    divMovie.appendChild(carouselItem)
+    divMovie.appendChild(h2)
+    carousel2.appendChild(divMovie)
+}
+function createPopularSeriesDiv(link, name){
+    const divMovie = document.createElement("div")
+    divMovie.classList.add("container-carousel-item")
+    const carouselItem = document.createElement("div")
+    carouselItem.classList.add("carousel-item")
+    const h2 = document.createElement("h2")
+    h2.innerText = name
+    divMovie.style.backgroundImage = `url(${link})`
+    divMovie.appendChild(carouselItem)
+    divMovie.appendChild(h2)
+    carousel3.appendChild(divMovie)
+}
+function createPopularSeriesDiv2(link, name){
+    const divMovie = document.createElement("div")
+    divMovie.classList.add("container-carousel-item")
+    const carouselItem = document.createElement("div")
+    carouselItem.classList.add("carousel-item")
+    const h2 = document.createElement("h2")
+    h2.innerText = name
+    divMovie.style.backgroundImage = `url(${link})`
+    divMovie.appendChild(carouselItem)
+    divMovie.appendChild(h2)
+    carousel4.appendChild(divMovie)
+}
 
-createPopularMovieDiv(testeBatata, "teste")
-createPopularMovieDiv(testeBatata, "teste")
+// createPopularSeriesDiv(testeBatata, "oi")
+// createPopularSeriesDiv(testeBatata, "oi")
