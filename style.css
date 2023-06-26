@@ -192,10 +192,6 @@ header{
     transition: all .3s ease-out;
   }
 
-  .carousel-btn{
-
-  }
-
   .carousel-btn:hover{
     background-color: var(--footer);
   }
@@ -290,6 +286,69 @@ header{
     bottom: -6rem;
     filter: blur(20px);
   }
+
+
+  .popup{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    top: 0;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .container-popup{
+    border: solid 2px var(--secondary);
+    display: flex;
+    /* background-color: var(--background-color); */
+    background-color: var(--footer);
+    color: var(--primary);
+    width: 80vw;
+    height:fit-content;
+  }
+  .popup img{
+    width: 30vw;
+    border-right: 3px solid black;
+  }
+
+  .info-popup{
+    margin: 3rem;
+  }
+  .info-popup h1{
+    font-size: 4rem;
+  }
+  .info-popup h2{
+    font-size: 2rem;
+    margin-top: 1rem;
+  }
+  .info-popup p{
+    font-size: 2rem;
+    margin-top: 5%;
+  }
+
+  .image{
+    background-image: url(img/jw4.jpg);
+    background-position: center;
+    background-size: cover;
+    width: 30vw;
+    height: 90vh;
+    border-right: 3px solid black;
+  }
+
+  .fa-x{
+    font-size: 2rem;
+    position: relative;
+    right: 2rem;
+    top: 2rem;
+    cursor: pointer;
+  }
+
+  .hide{
+    display: none;
+  }
+
 
   @media (max-width: 1250px) {
   html{
