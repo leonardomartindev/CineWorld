@@ -7,8 +7,6 @@ const options = {
       Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4NWQ3YmUwZWIxOWQyZDhlMTc3OTJjYTY3MjIyNTgxNSIsInN1YiI6IjY0OTU5NjY0ZDIzNmU2MDBjNzc5NThlYSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.gZZRNIGmOU_YF9n6EfyZMvumoadPdHWZaAi3bJ3T9Ys'
     }
   };
-  
-  
   const indiceTrendingSeries = Math.floor(Math.random() * 21)
   const trendingImageSerie = document.querySelector(".trending-img-poster")
   const h1TitleSerieTrending = trendingImageSerie.querySelector("h1")
@@ -28,7 +26,7 @@ const options = {
         response.results.forEach((e)=>{
           window.scrollTo({
             top: 0,
-            behavior: 'smooth' // Para uma animação suave, use 'smooth'. Para uma rolagem instantânea, use 'auto'.
+            behavior: 'smooth' 
           });
           console.log(e)
           if(e.name == h2Target){
@@ -58,13 +56,6 @@ const options = {
     })
     .catch(err => console.error(err));
 
-  
-  
-  
-  
-
-  //Seleção de variáveis DOM
-
   const popularCarouselContainer1 = document.querySelector(".carousel-container")
   const carousel1 = popularCarouselContainer1.querySelector(".carousel")
   const urlIMG = "https://image.tmdb.org/t/p/original";
@@ -80,9 +71,7 @@ const options = {
   .then(response => {
     const indiceMovie = Math.floor(Math.random() * 21)
     movieId = response.results[indiceMovie].id;
-    // const genresDOM = document.querySelectorAll(".genre-item")
     urlAPI = response.results[indiceMovie].backdrop_path
-    // console.log(response.results)
     document.addEventListener("click", (e)=>{
       
       const target = e.target
@@ -103,7 +92,6 @@ const options = {
         }
       })
     })
-    
     response.results.forEach((e, index)=>{
       if(index <= 9){
         const pathPoster = e.poster_path
@@ -135,10 +123,7 @@ const options = {
 })
 .catch(err => console.error(err));
     })
-})
- 
-  let testeBatata = "https://image.tmdb.org/t/p/original/weNAoAo7MvEWG9lhH4Y4llxs1yb.jpg"
-  
+})  
 
 function createGenreDiv(name){
     const div = document.createElement("div")
@@ -202,7 +187,6 @@ function createPopularSeriesDiv2(link, name){
     divMovie.appendChild(h2)
     carousel4.appendChild(divMovie)
 }
-
 const popup = document.querySelector(".popup")
 const containerPopup = document.querySelector(".container-popup")
 const imagePopupContainer = document.querySelector(".image-popup").querySelector("image")
@@ -243,12 +227,6 @@ document.addEventListener("click", (e)=>{
   }
 })
 
-// showPopup("oi", "teste", "fita", "cabeça", testeBatata)
-
-// createPopularSeriesDiv(testeBatata, "oi")
-// createPopularSeriesDiv(testeBatata, "oi")
-
-
 const handleFormSubmit = (e, inputSearch) => {
   e.preventDefault();
   const value = inputSearch.value;
@@ -258,7 +236,6 @@ const handleFormSubmit = (e, inputSearch) => {
     .then(response => response.json())
     .then(response => {
       inputSearch.value = ""
-      // console.log(response)
       document.addEventListener("click", (e)=>{
           const target = e.target
           const h1 = target.querySelector("h1").innerText
@@ -276,7 +253,6 @@ const handleFormSubmit = (e, inputSearch) => {
               const nota = Number(e.vote_average).toFixed(1)
               const data = e.first_air_date || "não encontrada"
               showPopup(title, nota, data, overview, url)
-              // showPopup("oi", "OI", "po", "teste", url)
               
             }
           })
