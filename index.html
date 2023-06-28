@@ -19,8 +19,10 @@
         <div class="logo-search-container">
             <img class="logo" src="img/Vector.png" alt="">
             <div class="input-search-container glass">
+              <form >
                 <i class="fa-solid fa-magnifying-glass"></i>
                 <input class="input-search" type="text" placeholder="Search Movie">
+              </form>
             </div>
         </div>
         <div class="genre-title-container">
@@ -82,14 +84,38 @@
               <h1 class="title-popup">Título: </h1>
               <h2 class="notas-popup">Classificação </h2>
               <h2 class="date-popup">Data: </h2>
-              <p class="desc-popup">"Esta série antológica de ficção científica explora um futuro próximo onde a natureza humana e a tecnologia de ponta entram em um perigoso conflito."
-              </p>
+              <p class="desc-popup"></p>
             </div>
             <i class="fa-solid fa-x"></i>
           </div>
         </div>
     </main>
-     
+     <section class="search-container hide">
+      <div class="input-search-container input-search-container-2 search-input glass">
+        <form >
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input class="input-search input-search-2" type="text" placeholder="Search Movie">
+        </form>
+      </div>
+      <div class="results">
+        
+      </div>
+      <i class="fa-solid fa-arrow-left-long"></i>     
+      <div class="popup hide outside">
+        <div class="container-popup">
+          <div class="image-popup">
+            <div class="image"></div>
+          </div>
+          <div class="info-popup">
+            <h1 class="title-popup">Título: </h1>
+            <h2 class="notas-popup">Classificação </h2>
+            <h2 class="date-popup">Data: </h2>
+            <p class="desc-popup"></p>
+          </div>
+          <i class="fa-solid fa-x"></i>
+        </div>
+      </div>
+    </section>
       <script src="carousel.js"></script>
       <script src="api.js"></script>
 </body>

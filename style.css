@@ -68,9 +68,9 @@ header{
     border-radius: 30px;
     height: 4rem;
     display: flex;
+
 }
 .input-search{
-    margin-top: 2px;
     background-color: transparent;
     border: none;
     outline: none;
@@ -78,11 +78,15 @@ header{
     margin-left: 1rem;
 }
 
+
+
+
 .input-search::placeholder{
     color: rgba(34, 34, 34, .5);;
     font-weight: 600;
-    text-align: center;
+    /* text-align: center; */
 }
+
 .fa-magnifying-glass{
     color: var(--footer);
     cursor: pointer;
@@ -294,7 +298,7 @@ header{
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.8);
     top: 0;
-    z-index: 2;
+    z-index: 4;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -343,6 +347,61 @@ header{
     right: 2rem;
     top: 2rem;
     cursor: pointer;
+  }
+
+  .search-container{
+    background-color: var(--background-color);
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .results {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, auto));    
+    grid-gap: 10px; /* Define um espaçamento de 10 pixels entre os itens */
+    margin: 8rem 3rem;
+  }
+  .results p {
+    visibility: hidden;
+  }
+
+  .item-search{
+    cursor: pointer;
+    margin-bottom: 2rem;
+    background-image: url(img/batman.jpg);
+    border: solid 2px var(--secondary);
+    height: 20vh;
+    background-position: left;
+    background-size: cover;
+  }
+
+  .title-search{
+    position: relative;
+    top: 105%;
+    font-size: 1.5rem;
+    text-align: center;
+    color: var(--primary);
+  }
+
+  .search-input{
+    margin: 4rem auto;
+    width: 90%;
+    text-align: left;
+  }
+
+  .fa-arrow-left-long{
+    position: absolute;
+    font-size: 4rem;
+    top: 1rem;
+    left: .2rem;
+    color: var(--primary);
+    padding: 1rem;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 300ms ease;
+  }
+  .fa-arrow-left-long:hover{
+    background-color: var(--footer);
   }
 
   .hide{

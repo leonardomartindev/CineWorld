@@ -21,6 +21,28 @@ const options = {
       h1TitleSerieTrending.innerText = response.results[indiceTrendingSeries].name
       nota.innerText = parseFloat(response.results[indiceTrendingSeries].vote_average).toFixed(1)
       
+      document.addEventListener("click", (e)=>{
+      
+        const target = e.target
+        const h2Target = target.querySelector("h2").innerText
+        response.results.forEach((e)=>{
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth' // Para uma animação suave, use 'smooth'. Para uma rolagem instantânea, use 'auto'.
+          });
+          console.log(e)
+          if(e.name == h2Target){
+            console.log(e)
+            const title = e.original_name
+            const nota = Number(e.vote_average).toFixed(1)
+            const data = e.release_date
+            const desc = e.overview
+            const url = `${urlIMG}${e.poster_path}`
+            showPopup(title, nota, data, desc, url)
+          }
+        })
+      })
+
       response.results.forEach((e, i)=>{
         if(i <= 9){
           const posterPathSerie = e.poster_path
@@ -37,10 +59,7 @@ const options = {
     .catch(err => console.error(err));
 
   
-//     fetch('https://api.themoviedb.org/3/search/multi?query=supernatural&include_adult=false&language=pt-BR&page=1', options)
-//     .then(response => response.json())
-//     .then(response => console.log("search",response))
-//     .catch(err => console.error(err));
+  
   
   
 
@@ -71,7 +90,7 @@ const options = {
       response.results.forEach((e)=>{
         window.scrollTo({
           top: 0,
-          behavior: 'smooth' // Para uma animação suave, use 'smooth'. Para uma rolagem instantânea, use 'auto'.
+          behavior: 'smooth'
         });
         if(e.original_title == h2Target){
           console.log(e)
@@ -220,6 +239,7 @@ document.addEventListener("click", (e)=>{
   const target = e.target
   if(target.classList.contains("outside")){
     popup.classList.add("hide")
+    body.style.overflowY = "auto"
   }
 })
 
@@ -227,3 +247,94 @@ document.addEventListener("click", (e)=>{
 
 // createPopularSeriesDiv(testeBatata, "oi")
 // createPopularSeriesDiv(testeBatata, "oi")
+
+
+const handleFormSubmit = (e, inputSearch) => {
+  e.preventDefault();
+  const value = inputSearch.value;
+  results.innerHTML = ""
+  
+  fetch(`https://api.themoviedb.org/3/search/multi?query=${value}&include_adult=false&language=pt-BR&page=1`, options)
+    .then(response => response.json())
+    .then(response => {
+      inputSearch.value = ""
+      // console.log(response)
+      document.addEventListener("click", (e)=>{
+          const target = e.target
+          const h1 = target.querySelector("h1").innerText
+          const pID = target.querySelector("p").innerHTML
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+          response.results.forEach((e)=>{
+            if(e.id == pID){
+              console.log(e)
+              const title = e.title || e.original_name || e.original_title
+              const overview = e.overview
+              const url = `${urlIMG}${e.poster_path}`
+              const nota = Number(e.vote_average).toFixed(1)
+              const data = e.first_air_date || "não encontrada"
+              showPopup(title, nota, data, overview, url)
+              // showPopup("oi", "OI", "po", "teste", url)
+              
+            }
+          })
+        })
+      response.results.forEach((e)=>{
+        const title = e.title
+        const name = e.original_name
+        const titleOriginal = e.original_title
+        const imageLink = e.backdrop_path
+        const searchId = e.id
+        header.classList.add("hide")
+        main.classList.add("hide")
+        searchContainer.classList.remove("hide")
+        if(imageLink){
+          createSearchResults(title || name || titleOriginal, imageLink, searchId)
+        }
+       
+        
+      })
+    })
+    .catch(err => console.error(err));
+    
+};
+
+const searchContainer = document.querySelector(".search-container")
+const main = document.querySelector("main")
+const header = document.querySelector("header")
+
+
+const results = document.querySelector(".results")
+const inputSearchContainer = document.querySelector(".input-search-container");
+const form = inputSearchContainer.querySelector("form");
+const inputSearch = document.querySelector(".input-search");
+form.addEventListener("submit", e => handleFormSubmit(e, inputSearch));
+
+const inputSearchContainer2 = document.querySelector(".input-search-container-2");
+const form2 = inputSearchContainer2.querySelector("form");
+const inputSearch2 = document.querySelector(".input-search-2");
+form2.addEventListener("submit", e => handleFormSubmit(e, inputSearch2));
+
+function createSearchResults(title, link, id){
+  let searchId = document.createElement("p")
+  searchId.innerText = id
+  const resultItem = document.createElement("div")
+  const titleItem = document.createElement("h1")
+  titleItem.innerText = title
+  resultItem.classList.add("item-search")
+  titleItem.classList.add("title-search")
+  resultItem.style.backgroundImage = `url(${urlIMG}${link})`
+  resultItem.appendChild(titleItem)
+  resultItem.appendChild(searchId)
+  results.appendChild(resultItem)
+}
+
+const arrowBack = document.querySelector(".fa-arrow-left-long")
+arrowBack.addEventListener("click", ()=>{
+  results.innerHTML = ""
+  searchContainer.classList.add("hide")
+  header.classList.remove("hide")
+  main.classList.remove("hide")
+})
